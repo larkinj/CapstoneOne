@@ -1,0 +1,32 @@
+Package: CapstoneOne
+Title: Submission for "Mastering software development in R Capstone - Assignment 1" on Coursera
+Version: 0.0.1.0
+Authors@R: 
+    person(given = "Jason",
+           family = "Larkin",
+           role = c("aut", "cre"),
+           email = "j.larkin@epa.ie",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: This is a submission for the Coursera course "Mastering software development in R Capstone - Assignment 1".
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: 
+	readxl,
+	magrittr,
+	dplyr,
+	readr,
+	tidyr,
+	stringr,
+	leaflet,
+	ggplot2,
+	grid,
+	scales,
+	lubridate,
+	testthat
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
