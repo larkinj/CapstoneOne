@@ -7,7 +7,6 @@
 #' @importFrom magrittr %>%
 #' @importFrom dplyr select rename mutate bind_rows filter case_when
 #' @importFrom readxl read_xlsx
-#' @importFrom datasets state.name
 #'
 #' @examples
 #' \dontrun{build_country_list()}

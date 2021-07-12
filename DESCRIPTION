@@ -25,6 +25,7 @@ Imports:
 	grid,
 	scales,
 	lubridate,
+	datasets,
 	testthat
 Suggests: 
     knitr,
