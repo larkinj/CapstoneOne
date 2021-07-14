@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![Build
-Status](https://travis-ci.com/larkinj/CapstoneOne.svg?branch=master)](https://travis-ci.org/larkinj/CapstoneOne)
+Status](https://travis-ci.com/larkinj/CapstoneOne.svg?branch=master)](https://travis-ci.com/larkinj/CapstoneOne)
 <!-- badges: end -->
 
 This package is published as part of the Mastering Software Development with R Capstone coursera course.
