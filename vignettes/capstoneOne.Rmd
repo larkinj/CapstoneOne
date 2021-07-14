@@ -31,7 +31,7 @@ This package enables users to plot earthquake information as ggplot charts and a
 
 ```{r message=F, warning=F, error=F}
 library(CapstoneOne)
-rawData <- read_tsv("../inst/extData/earthquakes-2021-06-25_15-27-06_+0100.tsv")
+rawData <- read_tsv("c:/_temp/earthquakes-2021-06-25_15-27-06_+0100.tsv")
 eqData <- eq_location_clean(rawData)
 ```
 

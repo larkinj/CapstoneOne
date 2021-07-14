@@ -1,7 +1,13 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Submission
+# CapstoneOne
+
+<!-- badges: start -->
+
+[![Build
+Status](https://travis-ci.com/larkinj/CapstoneOne.svg?branch=master)](https://travis-ci.org/larkinj/CapstoneOne)
+<!-- badges: end -->
 
 This package is published as part of the Mastering Software Development with R Capstone coursera course.
 
