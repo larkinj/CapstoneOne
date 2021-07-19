@@ -9,7 +9,7 @@ test_that("The function to create a standardised list of countries works as expe
   expect_true(ncol(countryList) == 2)
 })
 
-rawData <- read_file(inputFile)
+rawData <- read_noaa_file(inputFile)
 test_that("The function to create a standardised list of countries works as expected.",{
   expect_is(rawData, 'data.frame')
   expect_true(nrow(rawData) > 0)

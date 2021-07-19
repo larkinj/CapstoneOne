@@ -167,6 +167,7 @@ geom_timeline_label <- function(mapping = NULL, data = NULL, stat = "identity",
   )
 }
 
+#' @export
 theme_quake <- ggplot2::theme_classic() + 
   ggplot2::theme(
     legend.position = "bottom",

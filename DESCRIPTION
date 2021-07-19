@@ -1,6 +1,6 @@
 Package: CapstoneOne
 Title: Submission for "Mastering software development in R Capstone - Assignment 1" on Coursera
-Version: 0.0.1.0
+Version: 0.1.0
 Authors@R: 
     person(given = "Jason",
            family = "Larkin",

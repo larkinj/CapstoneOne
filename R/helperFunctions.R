@@ -9,8 +9,8 @@
 #' @importFrom readr read_tsv cols col_character col_double
 #'
 #' @examples
-#' \dontrun{read_file(earthquakes)}
-read_file <- function(input){
+#' \dontrun{read_noaa_file(earthquakes)}
+read_noaa_file <- function(input){
   rawData <- readr::read_tsv(input,
                              col_names = c("Search Parameters","Year","Mo","Dy","Hr","Mn","Sec","Tsu","Vol",                             
                                            "Location Name","Latitude","Longitude","Focal Depth (km)","Mag","MMI Int",

@@ -1,6 +1,6 @@
 context("Testing GGplot2 Extension Functions")
 
-rawData <- read_file("C:/_coursera/MasteringSoftwareDevelopmentWithR/course5/inst/extData/earthquakes-2021-06-25_15-27-06_+0100.tsv")
+rawData <- read_noaa_file("C:/_coursera/MasteringSoftwareDevelopmentWithR/course5/inst/extData/earthquakes-2021-06-25_15-27-06_+0100.tsv")
 standardisedNoaaData <- suppressMessages(suppressWarnings(eq_location_clean(rawData)))
 
 mapChina <- eq_map(standardisedNoaaData %>% dplyr::filter(Country == "China" & lubridate::year(Date) > 2000),
