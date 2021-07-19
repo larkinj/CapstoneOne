@@ -16,7 +16,14 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(CapstoneOne)
-library(tidyverse)
+library(magrittr)
+library(dplyr)
+library(readr)
+library(tidyr)
+library(ggplot2)
+library(stringr)
+library(grid)
+library(scales)
 library(lubridate)
 library(leaflet)
 ```
