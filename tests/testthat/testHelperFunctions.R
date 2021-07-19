@@ -1,5 +1,7 @@
 context("Testing NOAA File Helper Functions")
 
+inputFile <- "C:/_coursera/MasteringSoftwareDevelopmentWithR/course5/inst/extData/earthquakes-2021-06-25_15-27-06_+0100.tsv"
+
 countryList <- suppressMessages(suppressWarnings(build_country_list()))
 test_that("The function to create a standardised list of countries works as expected.",{
   expect_is(countryList, 'data.frame')
@@ -7,7 +9,13 @@ test_that("The function to create a standardised list of countries works as expe
   expect_true(ncol(countryList) == 2)
 })
 
-rawData <- readr::read_tsv("C:/_coursera/MasteringSoftwareDevelopmentWithR/course5/inst/extData/earthquakes-2021-06-25_15-27-06_+0100.tsv")
+rawData <- read_file(inputFile)
+test_that("The function to create a standardised list of countries works as expected.",{
+  expect_is(rawData, 'data.frame')
+  expect_true(nrow(rawData) > 0)
+  expect_true(ncol(rawData) == 39)
+})
+
 standardisedNoaaData <- suppressMessages(suppressWarnings(eq_location_clean(rawData)))
 
 test_that("The function to create a standardised list of earthquakes works as expected.",{

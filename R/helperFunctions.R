@@ -1,3 +1,42 @@
+#' This function reads a NOAA earthquake file.
+#' 
+#' NOAA earthquake data can be downloaded from downloaded from https://www.ngdc.noaa.gov/hazel/view/hazards/earthquake/event-data.
+#'
+#' @param input The location of a NOAA earthquake data file in tsv format.
+#'
+#' @return A data frame with a standardised list of NOAA earthquakes.
+#' @export
+#' @importFrom readr read_tsv cols col_character col_double
+#'
+#' @examples
+#' \dontrun{read_file(earthquakes)}
+read_file <- function(input){
+  rawData <- readr::read_tsv(input,
+                             col_names = c("Search Parameters","Year","Mo","Dy","Hr","Mn","Sec","Tsu","Vol",                             
+                                           "Location Name","Latitude","Longitude","Focal Depth (km)","Mag","MMI Int",
+                                           "Deaths","Death Description","Missing","Missing Description","Injuries","Injuries Description",           
+                                           "Damage ($Mil)","Damage Description","Houses Destroyed","Houses Destroyed Description",
+                                           "Houses Damaged","Houses Damaged Description","Total Deaths","Total Death Description","Total Missing",                    
+                                           "Total Missing Description","Total Injuries","Total Injuries Description","Total Damage ($Mil)",
+                                           "Total Damage Description","Total Houses Destroyed","Total Houses Destroyed Description",
+                                           "Total Houses Damaged","Total Houses Damaged Description"),
+                             col_types = readr::cols(readr::col_character(),readr::col_double(),readr::col_double(),
+                                                     readr::col_double(),readr::col_double(),readr::col_double(),
+                                                     readr::col_double(),readr::col_double(),readr::col_double(),
+                                                     readr::col_character(),readr::col_double(),readr::col_double(),
+                                                     readr::col_double(),readr::col_double(),readr::col_double(),
+                                                     readr::col_double(),readr::col_double(),readr::col_double(),
+                                                     readr::col_double(),readr::col_double(),readr::col_double(),
+                                                     readr::col_double(),readr::col_double(),readr::col_double(),
+                                                     readr::col_double(),readr::col_double(),readr::col_double(),
+                                                     readr::col_double(),readr::col_double(),readr::col_double(),
+                                                     readr::col_double(),readr::col_double(),readr::col_double(),
+                                                     readr::col_double(),readr::col_double(),readr::col_double(),
+                                                     readr::col_double(),readr::col_double(),readr::col_double()),
+                             na="",
+                             skip=1)
+}
+
 #' This function downloads the list of countries from the UN website. 
 #' The UN countries will be used as the basis for standardising country names in the NOAA file.
 #' The function customises the UN list to better match the "countries" listed in the NOAA file. 
@@ -7,7 +46,6 @@
 #' @importFrom magrittr %>%
 #' @importFrom dplyr select rename mutate bind_rows filter case_when
 #' @importFrom readxl read_xlsx
-#' @importFrom datasets
 #'
 #' @examples
 #' \dontrun{build_country_list()}
@@ -67,15 +105,16 @@ build_country_list <- function(){
   # Build a list of US states
   # US earthquakes are logged by state instead of by country
   ################################
-  usStates <- data.frame(NoaaName = datasets::state.name, Country = "United States") %>%
-    dplyr::bind_rows(data.frame(NoaaName=c("Alaska Peninsula"), Country = c("United States")))%>%
-    dplyr::bind_rows(data.frame(NoaaName=c("California-Nevada"), Country = c("United States")))%>%
-    dplyr::bind_rows(data.frame(NoaaName=c("California, Mexico"), Country = c("United States")))%>%
-    dplyr::bind_rows(data.frame(NoaaName=c("California; Mexico"), Country = c("United States")))%>%
-    dplyr::bind_rows(data.frame(NoaaName=c("Hawaiian Islands"), Country = c("United States")))%>%
-    dplyr::bind_rows(data.frame(NoaaName=c("Nevada-California Border"), Country = c("United States")))%>%
-    dplyr::bind_rows(data.frame(NoaaName=c("Puerto Rico"), Country = c("Puerto Rico")))%>%
-    dplyr::bind_rows(data.frame(NoaaName=c("Washington-Oregon Border"), Country = c("United States")))
+  usStates <- data.frame(NoaaName = c('Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut',
+                                      'Delaware','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa',
+                                      'Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan',
+                                      'Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire',
+                                      'New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio',
+                                      'Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota',
+                                      'Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming',
+                                      'Alaska Peninsula','California-Nevada','California, Mexico','California; Mexico',
+                                      'Hawaiian Islands','Nevada-California Border','Puerto Rico','Washington-Oregon Border'), 
+                         Country = "United States")
   
   ################################
   # Build a list of Canadian provinces
