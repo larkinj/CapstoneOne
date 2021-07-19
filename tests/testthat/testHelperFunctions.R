@@ -1,6 +1,7 @@
 context("Testing NOAA File Helper Functions")
 
-inputFile <- "C:/_coursera/MasteringSoftwareDevelopmentWithR/course5/inst/extData/earthquakes-2021-06-25_15-27-06_+0100.tsv"
+basePath <- system.file('extData', package='CapstoneOne')
+inputFile <- paste0(basePath,"/earthquakes-2021-06-25_15-27-06_+0100.tsv")
 
 countryList <- suppressMessages(suppressWarnings(build_country_list()))
 test_that("The function to create a standardised list of countries works as expected.",{
