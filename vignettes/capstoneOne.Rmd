@@ -37,7 +37,10 @@ The NOAA earthquake data is held online on the NOAA website. See https://www.ngd
 This package enables users to plot earthquake information as ggplot charts and as leaflet maps. To use the package, download a NOAA file (note that a version is included in the package) and run the eq_location_clean function to standardise country names:
 
 ```{r message=F, warning=F, error=F}
-rawData <- read_noaa_file("c:/_temp/earthquakes-2021-06-25_15-27-06_+0100.tsv")
+basePath <- system.file('extData', package='CapstoneOne')
+inputFileLocation <- paste0(basePath,"/earthquakes-2021-06-25_15-27-06_+0100.tsv")
+
+rawData <- read_noaa_file(inputFileLocation)
 eqData <- eq_location_clean(rawData)
 ```
 
