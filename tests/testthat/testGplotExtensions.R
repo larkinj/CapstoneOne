@@ -11,7 +11,7 @@ graphChina <- ggplot2::ggplot(standardisedNoaaData %>% dplyr::filter(Country == 
                 geom_timeline() +
                 geom_timeline_label() +
                 ggplot2::scale_shape_identity() +
-                theme_quake +
+                theme_quake() +
                 ggplot2::labs(size="Richter Scale", colour="Casualties")
 
 test_that("The ggplot extensions geom_timeline and geom_timeline_label create a ggplot class.",{

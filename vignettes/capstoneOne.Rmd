@@ -51,7 +51,7 @@ ggplot(eqData %>% filter(Country %in% c("China", "Greece") & year(Date) > 1990),
        aes(x=Date, y=Country, label=Location, n_max=5, colour=Deaths, size=Mag), alpha=0.1) + 
   geom_timeline() +
   scale_shape_identity() +
-  theme_quake +
+  theme_quake() +
   labs(size="Richter Scale", colour="Casualties") 
 ```
 
@@ -62,7 +62,7 @@ ggplot(eqData %>% filter(Country %in% c("China", "Greece") & year(Date) > 1990),
   geom_timeline() +
   geom_timeline_label() +
   scale_shape_identity() +
-  theme_quake +
+  theme_quake() +
   labs(size="Richter Scale", colour="Casualties") 
 ```
 

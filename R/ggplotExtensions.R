@@ -167,12 +167,21 @@ geom_timeline_label <- function(mapping = NULL, data = NULL, stat = "identity",
   )
 }
 
+#' GGplot function that creates a timeline graph of a group of earthquakes with associated labels
+#'
+#'
+#' @return Draws a GGplot graph
 #' @export
-theme_quake <- ggplot2::theme_classic() + 
-  ggplot2::theme(
-    legend.position = "bottom",
-    axis.line.y = ggplot2::element_blank()
-  )
-
+#' @importFrom ggplot2 theme theme_classic element_blank
+#'
+#' @examples
+#' \dontrun{ggplot(inputData) + geom_timeline(aes(x=Date, colour=Deaths, label=Location, n_max=5, size=Mag)) + theme_quake()}
+theme_quake <- function(){
+  ggplot2::theme_classic() + 
+    ggplot2::theme(
+      legend.position = "bottom",
+      axis.line.y = ggplot2::element_blank()
+    )
+}
 
                  
